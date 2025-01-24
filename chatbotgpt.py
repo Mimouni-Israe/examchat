@@ -1,7 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 
-st.title("ChatGPT-like clone")
+st.title("MBAESG-GPT ")
 
 # Set OpenAI API key from Streamlit secrets
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -40,32 +40,31 @@ if prompt := st.chat_input("What is up?"):
         response = st.write_stream(stream)
     st.session_state.messages.append({"role": "assistant", "content": response})
 
-
+#Selectbox
 import streamlit as st
 
-st.header('st.selectbox')
+st.header('🤖 Sélectionnez votre modèle OpenAI')
 
 # Question et choix des modèles
 option = st.selectbox(
      'Choisissez un modèle :',
-     ('gpt-3.5-turbo', 'gpt-3.5-turbo-instruct', 'gpt-3.5-turbo-1106', 'gpt-3.5-turbo-0125')
+     ('GPT-3.5-Turbo', 'GPT-3.5-Turbo-Instruct', 'GPT-3.5-Turbo-1106', 'GPT-3.5-Turbo-0125')
 )
 
 # Afficher le modèle sélectionné
 st.write('Vous avez choisi le modèle :', option)
-
 import streamlit as st
 from datetime import time, datetime
 
-st.header('st.slider')
+st.title ('🌟 Configuration du modèle OpenAI')
 
 # Nouveau slider pour choisir une valeur entre 0 et 500
-st.subheader('Choisir la valeur de max_tokens')
+st.subheader('Ajuster les paramètres pour personnaliser votre expérience')
 
 max_tokens = st.slider(
-    'Sélectionnez une valeur pour max_tokens :',
+    'Choisir le nombre de caractères maximum :',
     0, 500, 100  # Min = 0, Max = 500, Valeur par défaut = 100
 )
 
 # Afficher la valeur choisie
-st.write("La valeur de max_tokens est :", max_tokens)
+st.write("Le nombre de caractères maximum est :", max_tokens)
