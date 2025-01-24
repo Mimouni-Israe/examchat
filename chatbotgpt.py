@@ -53,3 +53,19 @@ option = st.selectbox(
 
 # Afficher le modèle sélectionné
 st.write('Vous avez choisi le modèle :', option)
+
+import streamlit as st
+from datetime import time, datetime
+
+st.header('st.slider')
+
+# Nouveau slider pour choisir une valeur entre 0 et 500
+st.subheader('Choisir la valeur de max_tokens')
+
+max_tokens = st.slider(
+    'Sélectionnez une valeur pour max_tokens :',
+    0, 500, 100  # Min = 0, Max = 500, Valeur par défaut = 100
+)
+
+# Afficher la valeur choisie
+st.write("La valeur de max_tokens est :", max_tokens)
